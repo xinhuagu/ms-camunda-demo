@@ -1,0 +1,8 @@
+#########################################
+.*
+!.gitignore
+!.gitattributes
+target/
+test-output/
+!src/
+
