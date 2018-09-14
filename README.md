@@ -4,23 +4,23 @@ this project aims to demostrate the usage of docker by development
 the application runs on camunda bpm plattform
 
 # Usage
-run ./reload.sh
-(./reload.sh is a script to load docker containers)
+run ./reload.sh<br/>
+(./reload.sh is a script to load docker containers)<br/>
 
-open http://localhost:8080/camunda/app/cockpit/default/#/login
-name:xinhua
-password:xinhua
+open http://localhost:8080/camunda/app/cockpit/default/#/login<br/>
+name:xinhua<br/>
+password:xinhua<br/>
 
-to create an order:
-POST  http://192.168.99.100:8080/webrest/webapi/order
-application/json
-{
- "number":"1",
- "name":"test"
-}
+to create an order:<br/>
+POST  http://192.168.99.100:8080/webrest/webapi/order<br/>
+application/json<br/>
+{<br/>
+ "number":"1",<br/>
+ "name":"test"<br/>
+}<br/>
 
-to list orders:
-GET http://192.168.99.100:8080/webrest/webapi/order
+to list orders:<br/>
+GET http://192.168.99.100:8080/webrest/webapi/order<br/>
 
-to get an order by number:
-GET http://192.168.99.100:8080/webrest/webapi/order/{number}
+to get an order by number:<br/>
+GET http://192.168.99.100:8080/webrest/webapi/order/{number}<br/>
