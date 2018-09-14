@@ -137,31 +137,29 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.powermock/powermock-module-junit4 -->
-		<dependency>
-			<groupId>org.powermock</groupId>
-			<artifactId>powermock-module-junit4</artifactId>
-			<version>1.6.5</version>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.powermock/powermock-api-mockito -->
-		<dependency>
-			<groupId>org.powermock</groupId>
-			<artifactId>powermock-api-mockito</artifactId>
-			<version>1.6.5</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<version>1.10.19</version>
-			<scope>test</scope>
-		</dependency>
 
 
 
 
+<dependency>
+  <groupId>org.mockito</groupId>
+  <artifactId>mockito-core</artifactId>
+  <version>2.18.0</version>
+  <scope>test</scope>
+</dependency>
+
+<dependency>
+  <groupId>org.powermock</groupId>
+  <artifactId>powermock-api-mockito2</artifactId>
+  <version>2.0.0-beta.5</version>
+  <scope>test</scope>
+</dependency>
+<dependency>
+  <groupId>org.powermock</groupId>
+  <artifactId>powermock-module-junit4</artifactId>
+  <version>2.0.0-beta.5</version>
+  <scope>test</scope>
+</dependency>
 
 
 		<!-- required when using jdk10 -->
@@ -169,21 +167,25 @@
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
 			<version>2.2.11</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.xml.bind</groupId>
 			<artifactId>jaxb-core</artifactId>
 			<version>2.2.11</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.xml.bind</groupId>
 			<artifactId>jaxb-impl</artifactId>
 			<version>2.2.11</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.activation</groupId>
 			<artifactId>activation</artifactId>
 			<version>1.1.1</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>

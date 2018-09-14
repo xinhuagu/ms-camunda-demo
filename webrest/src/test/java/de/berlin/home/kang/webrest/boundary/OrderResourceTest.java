@@ -1,7 +1,12 @@
 package de.berlin.home.kang.webrest.boundary;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.anyMap;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import javax.ws.rs.core.Response;
 
@@ -56,7 +61,6 @@ public class OrderResourceTest{
 		
 		final Response response = this.orderResource.get(order.getNumber());
 		
-		when(daoMock.findByOrderNumber(anyLong())).thenReturn(order);
 		
 		verify(daoMock,times(1)).findByOrderNumber(order.getNumber());
 
@@ -87,7 +91,6 @@ public class OrderResourceTest{
 		final Response response = this.orderResource.orders();
 		
 		
-		when(daoMock.findByOrderNumber(anyLong())).thenReturn(order);
 		verify(daoMock,times(1)).findAllOrders();
 		
         assertEquals(response.getStatus(), 200);
