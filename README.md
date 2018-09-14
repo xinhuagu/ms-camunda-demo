@@ -12,7 +12,7 @@ name:xinhua<br/>
 password:xinhua<br/>
 
 to create an order:<br/>
-POST  http://192.168.99.100:8080/webrest/webapi/order<br/>
+POST  http://localhost:8080/webrest/webapi/order<br/>
 application/json<br/>
 {<br/>
  "number":"1",<br/>
@@ -20,7 +20,7 @@ application/json<br/>
 }<br/>
 
 to list orders:<br/>
-GET http://192.168.99.100:8080/webrest/webapi/order<br/>
+GET http://localhost:8080/webrest/webapi/order<br/>
 
 to get an order by number:<br/>
-GET http://192.168.99.100:8080/webrest/webapi/order/{number}<br/>
+GET http://localhost:8080/webrest/webapi/order/{number}<br/>
