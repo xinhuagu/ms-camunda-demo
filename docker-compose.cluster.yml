@@ -1,0 +1,51 @@
+version: '3.4'
+services:
+  mysql:
+    image: mysql:5
+    #container_name: mysql
+
+    hostname: mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_USER=root
+        - MYSQL_DATABASE=process-engine
+    volumes:
+        - "./mysql/init:/docker-entrypoint-initdb.d"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    ports: 
+        - "3306:3306"
+    networks: 
+        - my
+
+  camunda:
+    #build: webrest
+    #image: xinhuagu/ms-camunda-demo_camunda:1.0
+    image: camunda/camunda-bpm-platform:latest
+    #container_name: camunda
+    hostname: camunda
+    depends_on:
+      - mysql
+    environment:
+      - DB_DRIVER=com.mysql.jdbc.Driver
+      - DB_URL=jdbc:mysql://mysql:3306/process-engine?autoReconnect=true
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+      - WAIT_FOR=mysql:3306
+    deploy:
+      replicas: 3 
+      restart_policy:
+        condition: on-failure
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 50M
+    ports: 
+      - "8080:8080"
+    networks: 
+      - my
+
+
+networks: 
+    my:
