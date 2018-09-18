@@ -1,10 +1,10 @@
-version: '3.4'
+version: '3.5'
 services:
   mysql:
     image: mysql:5
     #container_name: mysql
 
-    hostname: mysql
+    hostname: db
     environment:
         - MYSQL_ROOT_PASSWORD=root
         - MYSQL_USER=root
@@ -17,7 +17,7 @@ services:
     ports: 
         - "3306:3306"
     networks: 
-        - my
+        - test
 
   camunda:
     #build: webrest
@@ -26,13 +26,13 @@ services:
     #container_name: camunda
     hostname: camunda
     depends_on:
-      - mysql
+      - db
     environment:
       - DB_DRIVER=com.mysql.jdbc.Driver
-      - DB_URL=jdbc:mysql://mysql:3306/process-engine?autoReconnect=true
+      - DB_URL=jdbc:mysql://db:3306/process-engine?autoReconnect=true
       - DB_USERNAME=root
       - DB_PASSWORD=root
-      - WAIT_FOR=mysql:3306
+      - WAIT_FOR=db:3306
     deploy:
       replicas: 3 
       restart_policy:
@@ -44,8 +44,10 @@ services:
     ports: 
       - "8080:8080"
     networks: 
-      - my
-
+        - test
 
 networks: 
-    my:
+  test:
+    name: test-global-net
+  
+      
