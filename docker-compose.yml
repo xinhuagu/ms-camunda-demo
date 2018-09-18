@@ -7,11 +7,13 @@ services:
         - "3306:3306"
     hostname: mysql
     environment:
-        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_ROOT_PASSWORD=/run/secrets/mysql_secret
         - MYSQL_USER=root
         - MYSQL_DATABASE=process-engine
     volumes:
         - "./mysql/init:/docker-entrypoint-initdb.d"
+    secrets:
+        - mysql_secret
 
   camunda:
     #build: webrest
@@ -28,5 +30,10 @@ services:
       - DB_DRIVER=com.mysql.jdbc.Driver
       - DB_URL=jdbc:mysql://db:3306/process-engine?autoReconnect=true
       - DB_USERNAME=root
-      - DB_PASSWORD=root
+      - DB_PASSWORD=/run/secrets/mysql_secret
       - WAIT_FOR=db:3306
+    secrets: 
+      - mysql_secret
+secrets:
+    mysql_secret:
+      file: "./mysql/mysql-pass.txt"
