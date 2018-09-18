@@ -1,8 +1,8 @@
 version: '3.5'
 services:
-  mysql:
+  db:
     image: mysql:5
-    #container_name: mysql
+    container_name: db
 
     hostname: db
     environment:
@@ -23,10 +23,12 @@ services:
     #build: webrest
     #image: xinhuagu/ms-camunda-demo_camunda:1.0
     image: camunda/camunda-bpm-platform:latest
-    #container_name: camunda
+    container_name: camunda
     hostname: camunda
     depends_on:
       - db
+    links:
+      - db:db
     environment:
       - DB_DRIVER=com.mysql.jdbc.Driver
       - DB_URL=jdbc:mysql://db:3306/process-engine?autoReconnect=true
@@ -49,5 +51,7 @@ services:
 networks: 
   test:
     name: test-global-net
+    #external:
+    #  name: bridge
   
       

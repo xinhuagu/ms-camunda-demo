@@ -14,8 +14,8 @@ services:
         - "./mysql/init:/docker-entrypoint-initdb.d"
 
   camunda:
-    build: webrest
-    #image: camunda/camunda-bpm-platform:latest
+    #build: webrest
+    image: xinhuagu/ms-camunda-demo_camunda:1.0 
     container_name: camunda
     ports: 
       - "8080:8080"
