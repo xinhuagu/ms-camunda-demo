@@ -31,5 +31,5 @@ docker build -t ms-camunda-demo_camunda ./webrest/<br/>
  docker-compose build camunda<br/>
  docker-compose up -d camunda<br/>
 
- #log file in camunda container
+ # log file in camunda container
  winpty docker exec -it camunda //bin//bash (git bash)<br/>
