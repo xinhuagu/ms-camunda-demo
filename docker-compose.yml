@@ -14,7 +14,7 @@ services:
 
   camunda:
     #build: webrest
-    image: xinhuagu/ms-camunda-demo_camunda:1.0 
+    image: ms-camunda-demo_camunda:latest 
     container_name: camunda
     ports: 
       - "8080:8080"
