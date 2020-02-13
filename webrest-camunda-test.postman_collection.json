@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "a342599d-a9e0-4b12-a6b3-d7cc95912132",
+		"name": "webrest-camunda-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create an order ",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"number\":\"2\",\n \"name\":\"aaa\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/webrest/webapi/order/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"webrest",
+						"webapi",
+						"order",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "migration generator",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"sourceProcessDefinitionId\": \"wsrest_demo_process:1:b3329b42-b5e0-11e8-86d2-0242ac130003\",\n  \"targetProcessDefinitionId\": \"wsrest_demo_process:2:7e2fde9a-b5e3-11e8-8bc1-0242ac130003\",\n  \"updateEventTriggers\": true\n}"
+				},
+				"url": {
+					"raw": "http://192.168.99.100:8080/engine-rest/migration/generate",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"99",
+						"100"
+					],
+					"port": "8080",
+					"path": [
+						"engine-rest",
+						"migration",
+						"generate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "migration execute",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"migrationPlan\": {\n    \"sourceProcessDefinitionId\": \"wsrest_demo_process:4:3771a97c-4e2a-11ea-82f2-0242c0a80003\",\n    \"targetProcessDefinitionId\": \"wsrest_demo_process:5:6c5288d3-4e2b-11ea-8715-0242c0a80003\",\n    \"instructions\": [\n        {\n            \"sourceActivityIds\": [\n                \"gotExceptionTask\"\n            ],\n            \"targetActivityIds\": [\n                \"gotExceptionTask\"\n            ],\n            \"updateEventTrigger\": false\n        }\n    ]\n},\n  \"processInstanceIds\": [\n    \"59a9948f-4e2a-11ea-82f2-0242c0a80003\",\n    \"10ef2bc6-b524-11e8-9bc0-0242c0a85003\"\n  ],\n  \"skipCustomListeners\": true\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/engine-rest/migration/execute",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"engine-rest",
+						"migration",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.99.100:8080/webrest/webapi/order",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"99",
+						"100"
+					],
+					"port": "8080",
+					"path": [
+						"webrest",
+						"webapi",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get order by number",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Process Instance Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Process Definition Stastic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Activity Instance Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Process Instance Activity instance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,4 +1,5 @@
 # ms-camunda-demo
+to demostrate the usage of docker by development 
 
 the application runs on camunda bpm plattform
 
@@ -25,10 +26,7 @@ to get an order by number:<br/>
 GET http://localhost:8080/webrest/webapi/order/{number}<br/>
 
 # Update BPMN
-mvn clean package<br/>
-docker build -t ms-camunda-demo_camunda ./webrest/<br/>
- docker-compose build camunda<br/>
- docker-compose up -d camunda<br/>
+run ./redeploy.sh
 
- # log file in camunda container
- winpty docker exec -it camunda //bin//bash (git bash)<br/>
+# log file in camunda container
+ winpty docker exec -it camunda //bin//bash (git bash)
