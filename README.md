@@ -26,10 +26,10 @@ to get an order by number:<br/>
 GET http://localhost:8080/webrest/webapi/order/{number}<br/>
 
 # Update BPMN
-mvn clean package
-docker build -t ms-camunda-demo_camunda ./webrest/
- docker-compose build camunda
- docker-compose up -d camunda
+mvn clean package<br/>
+docker build -t ms-camunda-demo_camunda ./webrest/<br/>
+ docker-compose build camunda<br/>
+ docker-compose up -d camunda<br/>
 
  #log file in camunda container
- winpty docker exec -it camunda //bin//bash (git bash)
+ winpty docker exec -it camunda //bin//bash (git bash)<br/>
